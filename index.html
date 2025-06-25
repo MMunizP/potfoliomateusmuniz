@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Definindo o conjunto de caracteres e o layout responsivo -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mateus Muniz Pereira - Portfólio</title> <!-- Título da aba do navegador -->
+    <link rel="stylesheet" href="style.css"> <!-- Importando o CSS -->
+    <script src="https://unpkg.com/scrollreveal"></script> <!-- Biblioteca para animações -->
+</head>
+<body>
+    <!-- Seção inicial de apresentação (Hero) -->
+    <section class="hero">
+        <div class="texto-hero">
+            <h1>Mateus Muniz Pereira</h1> <!-- Meu nome -->
+            <h2>Desenvolvedor Front-End</h2> <!-- Minha profissão -->
+            <p>Músico | Praticante de atividade física | Apaixonado por tecnologia e banco de dados.</p> <!-- Um resumo sobre mim -->
+            
+            <!-- Links de navegação para as seções da página -->
+            <nav>
+                <li><a href="#sobre">Sobre Mim</a></li>
+                <li><a href="#formacao">Formação</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </nav>
+        </div>
+
+        <!-- Imagem de apresentação ao lado direito -->
+        <div class="imagem-hero">
+            <img src="./img/mateusmuniz.jpg" alt="Foto de Mateus Muniz Pereira"> <!-- Minha foto -->
+        </div>
+    </section>
+
+    <!-- Seção Sobre Mim -->
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>Sou um desenvolvedor front-end, apaixonado por criar experiências digitais. Conheci a tecnologia através dos jogos e hoje estudo Front-End e Banco de Dados.</p>
+    </section>
+
+    <!-- Seção Formação Acadêmica -->
+    <section id="formacao">
+        <h2>Formação</h2>
+        <p>E.E Vicente de Carvalho - Ensino Médio <br> 
+            Gestão e Negócios - Senac <br> 
+            Formação de Vigilante - Onze de Agosto <br> 
+            Análise e Desenvolvimento de Sistemas - Uninter (cursando) <br> 
+            Atualmente buscando aprimorar meus conhecimentos na área de Front-End e Banco de Dados.</p>
+
+        <h2>Idiomas</h2>
+        <p>Portguês (nativo) <br> Inglês (Intermediário) <br> Espanhol (básico)</p>
+    </section>
+
+    <!-- Seção Portfólio / Projetos -->
+<section id="portfolio">
+    <!-- Título da seção Portfólio -->
+    <h2>Portfólio / Projetos</h2>
+    <p>Nesta área você poderá ver alguns dos projetos que desenvolvi, em breve trarei novidades conforme meu conhecimento na área.</p>
+
+    <div class="caixa-projetos">
+
+    <!-- Projeto 1 -->
+    
+    
+    <div class="card-projeto">
+        <a href="tecnologica.html" target="_parent">
+            <img src="./img/tecnologo.png" alt="Imagem do Projeto Tecnológica" class="imagem-projeto">
+        </a>
+
+        <div class="texto-projeto">
+            <p class="descricao-projeto">Atividade prática realizada pela instituição de ensino Uninter..</p>
+        </div>
+
+    </div>
+
+    <!-- Projeto 2 -->
+    <div class="card-projeto">
+        <a href="guitarra.html" target="_parent">
+            <img src="./img/guitarlogo.jpg" alt="Imagem Projeto 2" class="imagem-projeto">
+        </a>
+
+        <div class="texto-projeto">
+            <p class="descricao-projeto">Projeto de cátalogo de guitarras contendo informações sobre cada modelo.</p>
+        </div>
+        
+    </div>
+
+    <!-- Projeto 3 -->
+    <div class="card-projeto">
+        <a href="login.html" target="_parent">
+            <img src="./img/login.png" alt="Imagem Projeto 3" class="imagem-projeto">
+        </a>
+
+        <div class="texto-projeto">
+            <p class="descricao-projeto">Tela de login.</p>
+        </div>
+        
+    </div>
+</div>
+
+    <!-- Seção Contato com formulário -->
+    <section id="contato" class="contato">
+        <h2 class="contatos-titulo">Entre em contato</h2>
+
+        <!-- Formulário que envia a mensagem para o WhatsApp -->
+        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+
+            <!-- Campo para o nome -->
+            <div class="grupo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
+            </div>
+            
+            <!-- Campo para a mensagem -->
+            <div class="grupo-form">
+                <textarea class="campo-form" placeholder="Digite sua mensagem" rows="6" id="mensagem"></textarea>
+            </div>
+
+            <!-- Botão de envio -->
+            <button type="submit" class="botao-form">Enviar WhatsApp</button>
+
+        </form>
+    </section>
+
+    <!-- Importando o ScrollReveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Função JavaScript para envio de mensagens via WhatsApp (funciona de verdade) -->
+    <script>
+      function enviarWhats(event){
+        event.preventDefault(); // Impede o recarregamento da página
+
+        // Pegando os valores digitados pelo usuário
+        const nome = document.getElementById('nome').value;
+        const mensagem = document.getElementById('mensagem').value;
+        const telefone = '5513996584788'; // Número de telefone com DDI e DDD
+
+        // Montando a mensagem que será enviada
+        const texto = `Olá! Me chamo ${nome}, ${mensagem}`;
+        const msgFormatada = encodeURIComponent(texto); // Codificando para URL
+
+        // Criando o link do WhatsApp com a mensagem pronta
+        const url = `https://wa.me/${telefone}/?text=${msgFormatada}`;
+        console.log(url); // Apenas para testes no console
+
+        // Abrindo o WhatsApp em uma nova aba
+        window.open(url, '_blank');
+      }
+    </script>
+
+    <!-- Efeito de animação nas seções usando ScrollReveal -->
+    <script>
+        ScrollReveal().reveal('section', {
+            reset: true,
+            duration: 1800,
+            opacity: 0,
+            easing: 'ease-in'
+        });
+    </script>
+
+</body>
+</html>

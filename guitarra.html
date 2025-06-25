@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de Guitarras</title>
+    <link rel="stylesheet" href="guitarra.css">
+</head>
+<body>
+  <h1>Catálogo de Guitarras</h1>
+  <div class="container">
+    <div class="image-box">
+      <img id="guitarImage" src="" alt="Guitarra">
+      <p class="description" id="guitarDescription"></p>
+    </div>
+    <div class="controls">
+      <button onclick="previousGuitar()">⬅ Anterior</button>
+      <button onclick="nextGuitar()">Próxima ➡</button>
+    </div>
+    <audio controls autoplay loop>
+      <source src="song2.mp3" type="audio/mp3">
+      Seu navegador não suporta áudio HTML5.
+    </audio>
+    
+  </div>
+
+  <script>
+    const guitars = [
+      {
+        nome: "EGT 61 - Eagle",
+        descricao: "De sua construção podemos destacar a estrutura “neck-through body”, onde o braço vai do headstock até a parte central do corpo. O restante do corpo – confeccionado em ash - é colado nas laterais da peça, compondo o shape final. O resultado sonoro é de uma guitarra com sustain e um timbre brilhante, encorpado, consistente, ataque pronunciado e agudos bem definidos.",
+        imagem: "gt1.jpg"
+      },
+      {
+        nome: "Les Paul Standard - Les Paul",
+        descricao: "A Epiphone Les Paul Standard lhe proporciona um timbre rico por um preço acessível. Captadores Humbucker de Alnico Classic proporcionam o máximo de timbres cheios e suaves; sustain transcontinental; distorção profunda tocante, característica que a tornou famosa. Feita com corpo em Mogno e vernizada em Maple no tampo esculpido, escala em Rosewood, binding no corpo e na escala em cor creme, e ferragens cromadas. Possui ponte LockTone Tune-O-Matic e LockTone Stopbar Tailpiece para adicionar mais sustain e facilitar a troca de cordas.",
+        imagem: "gt2.jpeg"
+      },
+      {
+        nome: "Schecter Avenger - Schecter",
+        descricao: "A Schecter Avenger SGR na cor Metallic Black é o equilíbrio perfeito entre design arrojado, qualidade sonora e recursos avançados. Projetada para músicos que buscam uma guitarra versátil e de alta performance, este modelo é uma verdadeira obra de arte, tanto no visual quanto no som.",
+        imagem: "gt3.avif"
+      },
+      {
+        nome: "Jazzmaster - Squier by Fender",
+        descricao: "A Fender Squier Classic Vibe 60s Jazzmaster tem um corpo sólido em poplar, ou tulipeiro, a madeira usada nos modelos dos anos 60. O braço é em bordo, com perfil em C para maior conforto.",
+        imagem: "gt4.jpg"
+      },
+      {
+        nome: "Epiphone SG Standard 1961 - Les Paul",
+        descricao: "Gibson SG Standard '61 Maestro Vibrola adiciona capacidade de vibrato ao SG Standard '61. O Maestro Vibrola oferece efeitos suaves de vibrato e o estilo clássico da gravura da Lira na tampa do arremate. Os recursos padrão incluem um braço fino de mogno cônico e uma escala de rosewood ligada.",
+        imagem: "gt5.jpg"
+      },
+      {
+        nome: "Telecaster - Fender",
+        descricao: "A Telecaster é conhecida por sua facilidade de uso, durabilidade e preço acessível em relação a outros tipos de guitarras elétricas; seu design simples (que apresenta um único corte na seção do corpo que permite aos músicos alcançar os trastes mais agudos ); e seu timbre claro e impactante.",
+        imagem: "gt6.png"
+      },
+      {
+        nome: "Stratocaster - Fender",
+        descricao: "A Fender Standard Stratocaster oferece a tocabilidade acessível e o timbre inspirador que tornaram a Fender um ícone do rock & roll. Equipada com um conjunto de captadores Fender Standard de alta saída e um confortável braço em perfil “Modern C”, essa Strato estabelece o padrão da experiência Fender.",
+        imagem: "gt7.jpg"
+      },
+      {
+        nome: "Explorer - ESP",
+        descricao: "A ESP LTD EX-401DX é uma guitarra EX modelo deluxe com Top Flamed Maple e corpo em Mogno. Seu estilo único permite acesso fácil em todos os 22 trastes da escala, o braço com shape fino é muito confortável e com ele você terá todo o controle e velocidade que precisa.",
+        imagem: "gt8.webp"
+      },
+      {
+        nome: "Flying V - Gibson",
+        descricao: "A Gibson Flying V é um modelo de guitarra elétrica lançado pela Gibson em 1958. A Flying V oferecia um design de corpo radical, muito parecido com suas irmãs: a Explorer , lançada no mesmo ano, e a Moderne , projetada em 1957, mas lançada somente em 1982.",
+        imagem: "gt9.jpg"
+      },
+      {
+        nome: "Semi Acústica - Gibson",
+        descricao: "A Gibson ES-335 DOT é o grande destaque da linha ES. Desde sua primeira aparição em 1958, a Gibson ES-335 estabeleceu um padrão inigualável. O conjunto da escala em rosewood com marcação dot pearloid num braço de mogno Rounded “C” trabalhado à mão, mostram aos músicos onde tudo começou.",
+        imagem: "gt10.jpg"
+      }
+    ];
+
+     let current = 0;
+
+    function showGuitar(index) {
+      const image = document.getElementById('guitarImage');
+      const description = document.getElementById('guitarDescription');
+
+      // Adiciona classe fade-out
+      image.classList.add('fade-out');
+
+      // Após 300ms, troca a imagem e remove a classe
+      setTimeout(() => {
+        image.src = guitars[index].imagem;
+        description.innerHTML = `<strong>${guitars[index].nome}</strong><br>${guitars[index].descricao}`;
+        image.classList.remove('fade-out');
+      }, 300);
+    }
+
+    function nextGuitar() {
+      current = (current + 1) % guitars.length;
+      showGuitar(current);
+    }
+
+    function previousGuitar() {
+      current = (current - 1 + guitars.length) % guitars.length;
+      showGuitar(current);
+    }
+
+    window.onload = () => {
+      showGuitar(current);
+    };
+  </script>
+</body>
+</html>

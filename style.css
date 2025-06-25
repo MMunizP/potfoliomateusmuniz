@@ -1,0 +1,241 @@
+/* Reset básico para remover margens e paddings padrão dos navegadores */
+body, h1, h2, p, nav, a, img, section, div, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configurações gerais do corpo da página */
+body {
+    background-color: #0e0e0e; 
+    color: white; 
+    font-family: Arial, sans-serif; 
+    line-height: 1.6; 
+}
+
+/* interação de rolagem da página clicando nos links */
+html {
+    scroll-behavior: smooth; 
+}
+
+/* Espaçamento e centralização de todas as seções */
+section {
+    padding: 80px 20px; 
+    text-align: center; 
+    background: radial-gradient(circle, #252525, #023f1e); 
+}
+
+/* Área principal de apresentação (Hero) */
+.hero {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 100px 10%; 
+    min-height: 100vh; 
+    background: radial-gradient(circle, #252525, #023f1e); 
+}
+
+/* Área de texto dentro da Hero */
+.texto-hero {
+    flex: 1; 
+    text-align: left; 
+}
+
+.texto-hero h1 {
+    font-size: 50px; 
+    margin-bottom: 10px; 
+}
+
+.texto-hero h2 {
+    font-size: 30px;
+    margin-bottom: 10px; 
+    color: #00ff99; 
+    transition: color 3s; /* efeito de transição de cor no texto */
+}
+
+.texto-hero h2:hover {
+    color: #ffffff; /* Ao passar o mouse fica branco */
+    transition: color 3s; 
+}
+
+.texto-hero p {
+    font-size: 18px; 
+    margin-bottom: 20px;
+    color: #cccccc;
+}
+
+/* Navegação com links internos */
+.texto-hero nav {
+    display: flex; 
+    list-style: none; 
+    padding: 0; 
+}
+
+.texto-hero nav li {
+    margin-right: 15px; 
+    list-style: none; 
+}
+
+.texto-hero nav a {
+    color: #00ff99; 
+    text-decoration: none; 
+    font-weight: bold; 
+    transition: color 3s; /
+}
+
+.texto-hero nav a:hover {
+    color: #ffffff; 
+}
+
+/* Área da imagem ao lado direito */
+.imagem-hero {
+    flex: 1; 
+    text-align: right;
+}
+
+.imagem-hero img{
+    max-width: 300px; 
+    border-radius: 50%; 
+    box-shadow: 0 0 40px rgba(0, 255, 153, 0.5); 
+    transition: box-shadow 3s; /* Transição de sombra */
+}
+
+.imagem-hero img:hover{
+    box-shadow: 0 0 100px rgb(0, 255, 153);  /* Efeito de brilho ao passar o mouse */
+    transition: box-shadow 3s;
+}
+
+/* Título das seções internas */
+section h2 {
+    font-size: 36px; 
+    margin-bottom: 20px; 
+    color: #00ff99; 
+}
+
+/* Parágrafos das seções internas */
+section p {
+    max-width: 800px; 
+    margin: 0 auto 20px auto; 
+    font-size: 18px; 
+    color: #cccccc; 
+}
+
+/* Seção de contato (formulário) */
+.contato{
+    padding: auto; 
+}
+
+.formulario-contato{
+    max-width: 600px; 
+    margin: 0 auto; 
+    background: rgba(0, 255, 153, 0.1); /* Fundo semi-transparente verde */
+    padding: 2rem;
+    border-radius: 16px;
+}
+
+.campo-form{
+    width: 93.5%; 
+    padding: 1rem; 
+    background: #ffffff; 
+    border-radius: 8px; 
+    color: #0e0e0e; 
+    border: 1px solid #ffffff; 
+    outline: none;
+}
+
+.campo-form:focus{
+    border-color: #00ff99;
+    box-shadow: 0 0 15px rgba(0, 255, 153, 0.5); /* Brilho ao focar no campo */
+}
+
+.grupo-form{
+    margin-bottom: 1.5rem; /* Espaço entre os campos do formulário */
+}
+
+.botao-form{
+    color: #0e0e0e; 
+    background: linear-gradient(45deg, #00ff99, #ffffff); /* Degradê no botão */
+    padding: 1rem 2rem; 
+    border: none; 
+    border-radius: 50px; 
+    cursor: pointer; /* Muda o cursor ao passar por cima */
+    font-weight: bold;
+    width: 100%; 
+    transition: all 0.5s ease; /* Transição suave */
+}
+
+.botao-form:hover{
+    transform: translateY(-4px); /* Sobe o botão ao passar o mouse */
+    box-shadow: 0 5px 15px rgba(0, 255, 153, 0.5);
+}
+
+
+/* Estilo da seção de projetos */
+
+.caixa-projetos {
+    display: flex; 
+    flex-wrap: wrap; /* Se a tela for pequena, os cards quebram para a linha de baixo */
+    justify-content: center; 
+    gap: 20px; /* Espaçamento entre os cards */
+    margin-top: 30px;
+}
+
+.card-projeto {
+    background-color: #324734; 
+    border-radius: 10px; 
+    overflow: hidden; /* Garante que nada saia do card */
+    width: 300px; 
+    box-shadow: 0 0 10px rgba(0, 255, 153, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-projeto:hover {
+    transform: translateY(-10px); /* Faz o card levantar ao passar o mouse */
+    box-shadow: 0 0 100px rgba(0, 255, 153, 0.6);
+}
+
+.imagem-projeto {
+    width: 100%; 
+    display: block; 
+    transition: opacity 0.3s; 
+}
+
+.card-projeto:hover .imagem-projeto {
+    opacity: 0.8; /* Deixa a imagem mais "apagada" quando passa o mouse */
+}
+
+.texto-projeto {
+    padding: 15px; /* Espaço interno para o texto */
+}
+
+.descricao-projeto {
+    color: #cccccc; 
+    font-size: 16px; 
+    text-align: center; 
+}
+
+/* Responsividade para telas menores (celulares/tablets) */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column; 
+        text-align: center; 
+    }
+
+    .texto-hero {
+        text-align: center; 
+    }
+
+    .imagem-hero {
+        text-align: center; 
+        margin-top: 20px; 
+    }
+
+    .texto-hero nav {
+        justify-content: center; 
+        flex-wrap: wrap; 
+    }
+
+    .texto-hero nav li {
+        margin-bottom: 10px; 
+    }
+}

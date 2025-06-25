@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url('back.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px; 
+}
+
+body {
+  opacity: 0;
+  animation: fadeBody 1s ease forwards;
+}
+
+h1 {
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+
+.container {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 40px 100px rgb(193, 20, 228);
+}
+
+.image-box {
+  text-align: center;
+}
+
+.image-box img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+.image-box img.fade-out {
+  opacity: 0;
+}
+
+.description {
+  margin-top: 15px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.controls button {
+  background-color: #555;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: rgb(193, 20, 228, 0.8);
+}
+
+audio {
+  margin-top: 30px;
+      width: 100%;
+}
+
+/* Animações extras */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeBody {
+  to { opacity: 1; }
+}
